@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "f_a_r:item/rot_debug_stick"
+  }
+}

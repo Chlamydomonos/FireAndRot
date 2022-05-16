@@ -1,0 +1,100 @@
+{
+  "variants": {
+    "phase=0": {
+      "model": "f_a_r:block/rotten_mycelial_soil_0"
+    },
+    "phase=1": {
+      "model": "f_a_r:block/rotten_mycelial_soil_0"
+    },
+    "phase=2": {
+      "model": "f_a_r:block/rotten_mycelial_soil_0"
+    },
+    "phase=3": {
+      "model": "f_a_r:block/rotten_mycelial_soil_1"
+    },
+    "phase=4": {
+      "model": "f_a_r:block/rotten_mycelial_soil_1"
+    },
+    "phase=5": {
+      "model": "f_a_r:block/rotten_mycelial_soil_1"
+    },
+    "phase=6": {
+      "model": "f_a_r:block/rotten_mycelial_soil_1"
+    },
+    "phase=7": {
+      "model": "f_a_r:block/rotten_mycelial_soil_1"
+    },
+    "phase=8": {
+      "model": "f_a_r:block/rotten_mycelial_soil_1"
+    },
+    "phase=9": {
+      "model": "f_a_r:block/rotten_mycelial_soil_2"
+    },
+    "phase=10": {
+      "model": "f_a_r:block/rotten_mycelial_soil_2"
+    },
+    "phase=11": {
+      "model": "f_a_r:block/rotten_mycelial_soil_2"
+    },
+    "phase=12": {
+      "model": "f_a_r:block/rotten_mycelial_soil_2"
+    },
+    "phase=13": {
+      "model": "f_a_r:block/rotten_mycelial_soil_2"
+    },
+    "phase=14": {
+      "model": "f_a_r:block/rotten_mycelial_soil_2"
+    },
+    "phase=15": {
+      "model": "f_a_r:block/rotten_mycelial_soil_2"
+    },
+    "phase=16": {
+      "model": "f_a_r:block/rotten_mycelial_soil_2"
+    },
+    "phase=17": {
+      "model": "f_a_r:block/rotten_mycelial_soil_2"
+    },
+    "phase=18": {
+      "model": "f_a_r:block/rotten_mycelial_soil_3"
+    },
+    "phase=19": {
+      "model": "f_a_r:block/rotten_mycelial_soil_3"
+    },
+    "phase=20": {
+      "model": "f_a_r:block/rotten_mycelial_soil_3"
+    },
+    "phase=21": {
+      "model": "f_a_r:block/rotten_mycelial_soil_3"
+    },
+    "phase=22": {
+      "model": "f_a_r:block/rotten_mycelial_soil_3"
+    },
+    "phase=23": {
+      "model": "f_a_r:block/rotten_mycelial_soil_3"
+    },
+    "phase=24": {
+      "model": "f_a_r:block/rotten_mycelial_soil_3"
+    },
+    "phase=25": {
+      "model": "f_a_r:block/rotten_mycelial_soil_3"
+    },
+    "phase=26": {
+      "model": "f_a_r:block/rotten_mycelial_soil_3"
+    },
+    "phase=27": {
+      "model": "f_a_r:block/rotten_mycelial_soil_3"
+    },
+    "phase=28": {
+      "model": "f_a_r:block/rotten_mycelial_soil_3"
+    },
+    "phase=29": {
+      "model": "f_a_r:block/rotten_mycelial_soil_3"
+    },
+    "phase=30": {
+      "model": "f_a_r:block/rotten_mycelial_soil_4"
+    },
+    "phase=31": {
+      "model": "f_a_r:block/rotten_mycelial_soil_4"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "f_a_r:block/rotten_mycelial_soil_4"
+  }
+}
