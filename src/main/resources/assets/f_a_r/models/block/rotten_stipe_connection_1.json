@@ -1,7 +1,9 @@
 {
 	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
 	"textures": {
 		"0": "f_a_r:block/rotten_stipe_1",
+		"1": "f_a_r:block/rotten_stipe_1_top",
 		"particle": "f_a_r:block/rotten_stipe_1"
 	},
 	"elements": [
@@ -13,7 +15,8 @@
 				"north": {"uv": [2, 0, 14, 2], "texture": "#0"},
 				"east": {"uv": [2, 0, 14, 2], "texture": "#0"},
 				"south": {"uv": [2, 0, 14, 2], "texture": "#0"},
-				"west": {"uv": [2, 0, 14, 2], "texture": "#0"}
+				"west": {"uv": [2, 0, 14, 2], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"}
 			}
 		}
 	]

@@ -35,8 +35,9 @@ public class RottenMycelialSoilWithoutTEBlock extends Block
     }
 
     @Override
-    public void randomTick(@NotNull BlockState state, ServerLevel level, @NotNull BlockPos pos, @NotNull Random random)
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull Random random)
     {
         RottenMycelialSoilUtil.rot(state, level, pos, random);
+        RottenMycelialSoilUtil.genStipe(state, level, pos, random);
     }
 }

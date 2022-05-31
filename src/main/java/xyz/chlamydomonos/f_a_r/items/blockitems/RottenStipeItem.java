@@ -1,5 +1,6 @@
 package xyz.chlamydomonos.f_a_r.items.blockitems;
 
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.PipeBlock;
@@ -25,6 +26,10 @@ public class RottenStipeItem extends BlockItem
     {
         if(super.getPlacementState(context) == null)
             return null;
+
+        if(context.getClickedFace() != Direction.UP)
+            return null;
+
         return Objects.requireNonNull(super.getPlacementState(context)).setValue(PipeBlock.DOWN, true);
     }
 }

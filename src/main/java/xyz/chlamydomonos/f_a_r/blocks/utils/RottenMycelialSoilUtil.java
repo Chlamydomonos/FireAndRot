@@ -2,6 +2,7 @@ package xyz.chlamydomonos.f_a_r.blocks.utils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MaterialColor;
 import org.jetbrains.annotations.NotNull;
@@ -117,5 +118,29 @@ public class RottenMycelialSoilUtil
             else if (phase < 31)
                 level.setBlock(pos, state.cycle(FARProperties.PHASE), 3);
         }
+    }
+
+    public static void genStipe(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull Random random)
+    {
+        if(random.nextInt(10) != 0)
+            return;
+
+        for(int i = -2; i <= 2; i++)
+        {
+            for(int j = 0; j <= 2; j++)
+            {
+                for(int k = -2; k <= 2; k++)
+                {
+                    if(level.getBlockState(pos.offset(i, j, k)).is(BlockLoader.ROTTEN_STIPE.get()))
+                        return;
+                }
+            }
+        }
+
+        level.setBlock(
+                pos.above(),
+                BlockLoader.ROTTEN_STIPE.get().defaultBlockState().setValue(PipeBlock.DOWN, true),
+                3
+                      );
     }
 }

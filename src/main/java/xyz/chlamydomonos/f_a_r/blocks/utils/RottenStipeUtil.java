@@ -40,6 +40,13 @@ public class RottenStipeUtil
                && !isThisBuffer[xOffset + 2][1][zOffset + 2];
     }
 
+    public static BlockState tryIncreaseHeight(BlockState origin, Random random)
+    {
+        if(origin.getValue(FARProperties.HEIGHT) == 0)
+            return origin.cycle(FARProperties.HEIGHT);
+        return random.nextInt(10) == 0 ? origin.cycle(FARProperties.HEIGHT) : origin;
+    }
+
     public static boolean growUp(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull Random random)
     {
         for (int i = -2; i <= 2; i++)
@@ -89,8 +96,6 @@ public class RottenStipeUtil
                 .getBlock()
                 .defaultBlockState()
                 .setValue(FARProperties.HEIGHT, state.getValue(FARProperties.HEIGHT));
-        if (addHeight)
-            newState = newState.cycle(FARProperties.HEIGHT);
 
         if (canSplitX || canSplitZ)
         {
@@ -108,14 +113,14 @@ public class RottenStipeUtil
 
                 if (canSplitX)
                 {
-                    level.setBlock(pos.offset(-1, 0, 0), newState, 3);
-                    level.setBlock(pos.offset(1, 0, 0), newState, 3);
+                    level.setBlock(pos.offset(-1, 0, 0), tryIncreaseHeight(newState, random), 3);
+                    level.setBlock(pos.offset(1, 0, 0), tryIncreaseHeight(newState, random), 3);
                     return true;
                 }
                 if (canSplitZ)
                 {
-                    level.setBlock(pos.offset(0, 0, -1), newState, 3);
-                    level.setBlock(pos.offset(0, 0, 1), newState, 3);
+                    level.setBlock(pos.offset(0, 0, -1), tryIncreaseHeight(newState, random), 3);
+                    level.setBlock(pos.offset(0, 0, 1), tryIncreaseHeight(newState, random), 3);
                     return true;
                 }
                 if (random.nextBoolean())
@@ -128,16 +133,38 @@ public class RottenStipeUtil
 
         if (canGrowUp && (random.nextBoolean() || !canGrowSide))
         {
-            level.setBlock(pos.above(), newState, 3);
+            level.setBlock(pos.above(), tryIncreaseHeight(newState, random), 3);
             return true;
         }
 
         if (canGrowSide)
         {
             var dir = availableDirections.toArray()[random.nextInt(availableDirections.size())];
-            level.setBlock(pos.offset((Vec3i) dir), newState, 3);
+            level.setBlock(pos.offset((Vec3i) dir), tryIncreaseHeight(newState, random), 3);
         }
 
+        return false;
+    }
+
+    public static boolean canGrowOld(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull Random random)
+    {
+        int age = state.getValue(FARProperties.AGE);
+        var stateBelow = level.getBlockState(pos.below());
+        var stateNorth = level.getBlockState(pos.north());
+        var stateEast = level.getBlockState(pos.east());
+        var stateSouth = level.getBlockState(pos.south());
+        var stateWest = level.getBlockState(pos.west());
+
+        if(stateBelow.is(state.getBlock()) && stateBelow.getValue(FARProperties.AGE) > age)
+            return true;
+        if(stateNorth.is(state.getBlock()) && stateNorth.getValue(FARProperties.AGE) > age)
+            return true;
+        if(stateEast.is(state.getBlock()) && stateEast.getValue(FARProperties.AGE) > age)
+            return true;
+        if(stateSouth.is(state.getBlock()) && stateSouth.getValue(FARProperties.AGE) > age)
+            return true;
+        if(stateWest.is(state.getBlock()) && stateWest.getValue(FARProperties.AGE) > age)
+            return true;
         return false;
     }
 
@@ -179,29 +206,7 @@ public class RottenStipeUtil
             return;
         }
 
-        boolean flag = false;
-
-        getFlag:
-        for (int i = -1; i <= 1; i++)
-        {
-            for (int j = -1; j <= 0; j++)
-            {
-                for (int k = -1; k <= 1; k++)
-                {
-                    if (level.getBlockState(pos.offset(i, j, k)).is(state.getBlock()))
-                    {
-                        int neighborAge = level.getBlockState(pos.offset(i, j, k)).getValue(FARProperties.AGE);
-                        if (age < neighborAge)
-                        {
-                            flag = true;
-                            break getFlag;
-                        }
-                    }
-                }
-            }
-        }
-
-        if (flag && random.nextInt(8) == 0)
+        if (canGrowOld(state, level, pos, random) && random.nextInt(8) == 0)
         {
             level.setBlock(pos, state.cycle(FARProperties.AGE), 3);
         }
