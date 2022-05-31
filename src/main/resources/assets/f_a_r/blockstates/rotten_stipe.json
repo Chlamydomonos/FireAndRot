@@ -1,0 +1,264 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "north": "true",
+        "age": "0|1"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_connection_0",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "age": "0|1"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_connection_0",
+        "x": 90,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": "true",
+        "age": "0|1"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_connection_0",
+        "x": 90,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "true",
+        "age": "0|1"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_connection_0",
+        "x": 90,
+        "y": 270
+      }
+    },
+
+    {
+      "when": {
+        "north": "false",
+        "age": "0|1"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_side_0"
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "age": "0|1"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_side_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": "false",
+        "age": "0|1"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_side_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "false",
+        "age": "0|1"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_side_0",
+        "y": 270
+      }
+    },
+
+
+    {
+      "when": {
+        "north": "true",
+        "age": "2|3"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_connection_1",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "age": "2|3"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_connection_1",
+        "x": 90,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": "true",
+        "age": "2|3"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_connection_1",
+        "x": 90,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "true",
+        "age": "2|3"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_connection_1",
+        "x": 90,
+        "y": 270
+      }
+    },
+
+    {
+      "when": {
+        "north": "false",
+        "age": "2|3"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_side_1"
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "age": "2|3"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_side_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": "false",
+        "age": "2|3"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_side_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "false",
+        "age": "2|3"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_side_1",
+        "y": 270
+      }
+    },
+
+
+    {
+      "when": {
+        "down": "true",
+        "age": "0|1"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_connection_0",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "down": "true",
+        "age": "2|3"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_connection_1",
+        "x": 180
+      }
+    },
+
+    {
+      "when": {
+        "down": "false",
+        "age": "0|1"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_side_0",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "down": "false",
+        "age": "2|3"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_side_1",
+        "x": 90
+      }
+    },
+
+
+    {
+      "when": {
+        "up": "true",
+        "age": "0|1"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_connection_0"
+      }
+    },
+    {
+      "when": {
+        "up": "true",
+        "age": "2|3"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_connection_1"
+      }
+    },
+
+    {
+      "when": {
+        "up": "false",
+        "age": "0|1"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_top_0"
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "age": "2|3"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_top_1"
+      }
+    },
+
+
+    {
+      "when": {
+        "age": "4"
+      },
+      "apply": {
+        "model": "f_a_r:block/rotten_stipe_2"
+      }
+    }
+  ]
+}

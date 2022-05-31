@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "f_a_r:block/rotten_stipe_top",
+    "side": "f_a_r:block/rotten_stipe_2"
+  }
+}

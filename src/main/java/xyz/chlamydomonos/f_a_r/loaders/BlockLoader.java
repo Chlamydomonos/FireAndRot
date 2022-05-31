@@ -24,6 +24,7 @@ public class BlockLoader
     public static final RegistryObject<Block> ROTTEN_MYCELIAL_SOIL = BLOCKS.register("rotten_mycelial_soil", RottenMycelialSoilBlock::new);
     public static final RegistryObject<Block> ROTTEN_MYCELIAL_SOIL_WITHOUT_TE = BLOCKS.register("rotten_mycelial_soil_without_te", RottenMycelialSoilWithoutTEBlock::new);
     public static final RegistryObject<Block> ROTTEN_MYCELIAL_SOIL_HIDDEN = BLOCKS.register("rotten_mycelial_soil_hidden", RottenMycelialSoilHiddenBlock::new);
+    public static final RegistryObject<Block> ROTTEN_STIPE = BLOCKS.register("rotten_stipe", RottenStipeBlock::new);
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event)
@@ -31,6 +32,7 @@ public class BlockLoader
         event.enqueueWork(() -> {
             ItemBlockRenderTypes.setRenderLayer(ROTTEN_MYCELIAL_SOIL.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ROTTEN_MYCELIAL_SOIL_HIDDEN.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ROTTEN_STIPE.get(), RenderType.translucent());
         });
     }
 
