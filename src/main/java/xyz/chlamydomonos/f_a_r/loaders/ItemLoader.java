@@ -15,4 +15,5 @@ public class ItemLoader
     public static final RegistryObject<Item> FIRE_AND_ROT_ICON = ITEMS.register("fire_and_rot_icon", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> ROT_DEBUG_STICK = ITEMS.register("rot_debug_stick", RotDebugStickItem::new);
     public static final RegistryObject<Item> ROTTEN_STIPE = ITEMS.register("rotten_stipe", RottenStipeItem::new);
+    public static final RegistryObject<Item> TEST_PROJECTILE = ITEMS.register("test_projectile", TestProjectileItem::new);
 }

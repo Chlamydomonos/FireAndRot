@@ -27,3 +27,4 @@ forge*changelog.txt
 # custom
 local_doc
 *.psd
+*.bbmodel
