@@ -19,7 +19,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 
-version = '0.0.2'
+version = '0.0.3'
 group = 'xyz.chlamydomonos.f_a_r' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'f_a_r'
 
