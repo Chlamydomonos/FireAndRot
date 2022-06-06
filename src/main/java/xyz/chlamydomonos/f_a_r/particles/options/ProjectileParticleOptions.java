@@ -82,6 +82,21 @@ public class ProjectileParticleOptions implements ParticleOptions
         return new Vector3f(r, g, b);
     }
 
+    public float getR()
+    {
+        return r;
+    }
+
+    public float getG()
+    {
+        return g;
+    }
+
+    public float getB()
+    {
+        return b;
+    }
+
     public float getA()
     {
         return a;

@@ -8,27 +8,27 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 import xyz.chlamydomonos.f_a_r.FireAndRot;
-import xyz.chlamydomonos.f_a_r.entities.MainProjectileEntity;
-import xyz.chlamydomonos.f_a_r.entities.models.MainProjectileModel;
+import xyz.chlamydomonos.f_a_r.entities.ChildProjectileEntity;
+import xyz.chlamydomonos.f_a_r.entities.models.ChildProjectileModel;
 
-public class MainProjectileRenderer extends EntityRenderer<MainProjectileEntity>
+public class ChildProjectileRenderer extends EntityRenderer<ChildProjectileEntity>
 {
-    private final MainProjectileModel model;
+    private final ChildProjectileModel model;
 
-    public MainProjectileRenderer(EntityRendererProvider.Context pContext)
+    public ChildProjectileRenderer(EntityRendererProvider.Context pContext)
     {
         super(pContext);
-        model = new MainProjectileModel(pContext.bakeLayer(MainProjectileModel.LAYER_LOCATION));
+        model = new ChildProjectileModel(pContext.bakeLayer(ChildProjectileModel.LAYER_LOCATION));
     }
 
     @Override
-    public @NotNull ResourceLocation getTextureLocation(@NotNull MainProjectileEntity pEntity)
+    public @NotNull ResourceLocation getTextureLocation(@NotNull ChildProjectileEntity pEntity)
     {
         return new ResourceLocation(FireAndRot.MODID, "textures/entity/main_projectile.png");
     }
 
     @Override
-    public void render(@NotNull MainProjectileEntity pEntity, float pEntityYaw, float pPartialTicks, @NotNull PoseStack pMatrixStack, @NotNull MultiBufferSource pBuffer, int pPackedLight)
+    public void render(@NotNull ChildProjectileEntity pEntity, float pEntityYaw, float pPartialTicks, @NotNull PoseStack pMatrixStack, @NotNull MultiBufferSource pBuffer, int pPackedLight)
     {
         super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
         pMatrixStack.pushPose();

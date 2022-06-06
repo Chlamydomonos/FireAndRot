@@ -1,5 +1,8 @@
 package xyz.chlamydomonos.f_a_r.items;
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -7,11 +10,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import xyz.chlamydomonos.f_a_r.entities.MainProjectileEntity;
 import xyz.chlamydomonos.f_a_r.loaders.CreativeTabLoader;
 
+import java.util.List;
 import java.util.Optional;
 
 public class TestProjectileItem extends Item
@@ -19,6 +25,14 @@ public class TestProjectileItem extends Item
     public TestProjectileItem()
     {
         super(new Properties().tab(CreativeTabLoader.FIRE_AND_ROT));
+    }
+
+    @Override
+    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> text, @NotNull TooltipFlag flag)
+    {
+        super.appendHoverText(stack, level, text, flag);
+        text.add(new TranslatableComponent("tooltip.f_a_r.test_projectile.line1")
+                         .setStyle(Style.EMPTY.withFont(Style.DEFAULT_FONT).withColor(0x808080)));
     }
 
     @Override
@@ -51,9 +65,9 @@ public class TestProjectileItem extends Item
         var mainProjectile = MainProjectileEntity.create(pLevel);
 
         mainProjectile.setPos(pLivingEntity.getEyePosition());
-        mainProjectile.setLifeTime(100);
+        mainProjectile.getEntityData().set(MainProjectileEntity.LIFETIME, 100);
         mainProjectile.getEntityData().set(MainProjectileEntity.INITIAL_HEIGHT, (float) pLivingEntity.getEyePosition().y);
-        mainProjectile.getEntityData().set(MainProjectileEntity.OWNER, Optional.of(pLivingEntity.getUUID()));
+        mainProjectile.setOwner(pLivingEntity);
         pLevel.addFreshEntity(mainProjectile);
 
         mainProjectile.shoot(x, y, z, 0.5f, 0f);
