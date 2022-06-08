@@ -19,8 +19,9 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 
-version = '0.0.3'
+version = '0.0.4'
 group = 'xyz.chlamydomonos.f_a_r' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+//noinspection GroovyUnusedAssignment
 archivesBaseName = 'f_a_r'
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
@@ -130,6 +131,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
+            //noinspection GroovyAssignabilityCheck
             args '--mod', 'f_a_r', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
@@ -180,6 +182,7 @@ dependencies {
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
+    //noinspection GroovyAssignabilityCheck
     manifest {
         attributes([
                 "Specification-Title"     : "f_a_r",
