@@ -1,0 +1,55 @@
+{
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"textures": {
+		"0": "f_a_r:block/rotten_mushroom_cap_1_in",
+		"1": "f_a_r:block/rotten_mushroom_cap_1_out",
+		"2": "f_a_r:block/rotten_mushroom_cap_corner_bottom",
+		"particle": "f_a_r:block/rotten_mushroom_cap_1_in"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [16, 12, 16],
+			"faces": {
+				"north": {"uv": [1, 4, 15, 16], "texture": "#1"},
+				"east": {"uv": [1, 2, 15, 14], "texture": "#0"},
+				"south": {"uv": [1, 2, 15, 14], "texture": "#0"},
+				"west": {"uv": [1, 4, 15, 16], "texture": "#1"},
+				"up": {"uv": [1, 2, 15, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 14, 14], "texture": "#2"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 225, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"fixed": {
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}
