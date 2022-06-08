@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "f_a_r:block/rotten_mushroom_cap_1_corner",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "f_a_r:block/rotten_mushroom_cap_1_corner"
+    },
+    "facing=south": {
+      "model": "f_a_r:block/rotten_mushroom_cap_1_corner",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "f_a_r:block/rotten_mushroom_cap_1_corner",
+      "y": 270
+    }
+  }
+}

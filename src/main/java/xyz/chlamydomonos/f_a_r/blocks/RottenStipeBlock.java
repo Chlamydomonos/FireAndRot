@@ -14,9 +14,11 @@ import net.minecraft.world.level.material.MaterialColor;
 import org.jetbrains.annotations.NotNull;
 import xyz.chlamydomonos.f_a_r.blocks.utils.FARProperties;
 import xyz.chlamydomonos.f_a_r.blocks.utils.RottenStipeUtil;
+import xyz.chlamydomonos.f_a_r.loaders.BlockLoader;
 
 import java.util.Random;
 
+@SuppressWarnings("deprecation")
 public class RottenStipeBlock extends PipeBlock
 {
     public RottenStipeBlock()
@@ -48,14 +50,25 @@ public class RottenStipeBlock extends PipeBlock
         builder.add(NORTH, SOUTH, EAST, WEST, UP, DOWN, FARProperties.AGE, FARProperties.HEIGHT);
     }
 
+    private boolean canConnect(BlockState state)
+    {
+        var block = state.getBlock();
+        if (block == this)
+            return true;
+        if (block == BlockLoader.SMALL_ROTTEN_MUSHROOM_CAP.get())
+            return true;
+        if (block == BlockLoader.ROTTEN_MUSHROOM_CAP_CENTER.get())
+            return true;
+        return false;
+    }
+
     @Override
     public @NotNull BlockState updateShape(BlockState state, @NotNull Direction direction, @NotNull BlockState neighborState, @NotNull LevelAccessor level, @NotNull BlockPos currentPos, @NotNull BlockPos neighborPos)
     {
-        if(state.getValue(FARProperties.HEIGHT) == 0 && direction == Direction.DOWN)
+        if (state.getValue(FARProperties.HEIGHT) == 0 && direction == Direction.DOWN)
             return state.setValue(PROPERTY_BY_DIRECTION.get(direction), !neighborState.isAir());
-
-        boolean flag = neighborState.getBlock() == this;
-        return state.setValue(PROPERTY_BY_DIRECTION.get(direction), flag);
+        
+        return state.setValue(PROPERTY_BY_DIRECTION.get(direction), canConnect(neighborState));
     }
 
     @Override

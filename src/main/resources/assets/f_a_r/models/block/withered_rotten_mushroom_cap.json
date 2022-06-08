@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "f_a_r:block/withered_rotten_mushroom_cap_bottom",
+    "top": "f_a_r:block/withered_rotten_mushroom_cap_top",
+    "side": "f_a_r:block/withered_rotten_mushroom_cap_top"
+  }
+}

@@ -16,6 +16,7 @@ import net.minecraftforge.registries.RegistryObject;
 import xyz.chlamydomonos.f_a_r.FireAndRot;
 import xyz.chlamydomonos.f_a_r.blocks.*;
 
+@SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = FireAndRot.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class BlockLoader
 {
@@ -25,6 +26,13 @@ public class BlockLoader
     public static final RegistryObject<Block> ROTTEN_MYCELIAL_SOIL_WITHOUT_TE = BLOCKS.register("rotten_mycelial_soil_without_te", RottenMycelialSoilWithoutTEBlock::new);
     public static final RegistryObject<Block> ROTTEN_MYCELIAL_SOIL_HIDDEN = BLOCKS.register("rotten_mycelial_soil_hidden", RottenMycelialSoilHiddenBlock::new);
     public static final RegistryObject<Block> ROTTEN_STIPE = BLOCKS.register("rotten_stipe", RottenStipeBlock::new);
+    public static final RegistryObject<Block> SMALL_ROTTEN_MUSHROOM_CAP = BLOCKS.register("small_rotten_mushroom_cap", SmallRottenMushroomCapBlock::new);
+    public static final RegistryObject<Block> ROTTEN_MUSHROOM_CAP_CENTER = BLOCKS.register("rotten_mushroom_cap_center", RottenMushroomCapCenterBlock::new);
+    public static final RegistryObject<Block> ROTTEN_MUSHROOM_CAP_SIDE = BLOCKS.register("rotten_mushroom_cap_side", RottenMushroomCapBlock::new);
+    public static final RegistryObject<Block> ROTTEN_MUSHROOM_CAP_CORNER = BLOCKS.register("rotten_mushroom_cap_corner", RottenMushroomCapBlock::new);
+    public static final RegistryObject<Block> WITHERED_ROTTEN_MUSHROOM_CAP = BLOCKS.register("withered_rotten_mushroom_cap", WitheredRottenMushroomCapBlock::new);
+    public static final RegistryObject<Block> ROTTEN_RESIDUE = BLOCKS.register("rotten_residue", RottenResidueBlock::new);
+
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event)
@@ -33,6 +41,7 @@ public class BlockLoader
             ItemBlockRenderTypes.setRenderLayer(ROTTEN_MYCELIAL_SOIL.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ROTTEN_MYCELIAL_SOIL_HIDDEN.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ROTTEN_STIPE.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(SMALL_ROTTEN_MUSHROOM_CAP.get(), RenderType.translucent());
         });
     }
 
