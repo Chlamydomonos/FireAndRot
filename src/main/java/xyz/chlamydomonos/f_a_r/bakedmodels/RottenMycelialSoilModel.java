@@ -19,6 +19,7 @@ import xyz.chlamydomonos.f_a_r.tileentities.RottenMycelialSoilTileEntity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public record RottenMycelialSoilModel(
@@ -32,7 +33,7 @@ public record RottenMycelialSoilModel(
     {
         var block = extraData.getData(BLOCK);
         List<BakedQuad> newQuads = new ArrayList<>();
-        newQuads.addAll(block.getQuads(state, side, rand, extraData));
+        newQuads.addAll(Objects.requireNonNull(block).getQuads(state, side, rand, extraData));
         newQuads.addAll(mycelium.getQuads(state, side, rand, extraData));
         return newQuads;
     }
@@ -42,7 +43,7 @@ public record RottenMycelialSoilModel(
     public IModelData getModelData(@NotNull BlockAndTintGetter level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull IModelData modelData)
     {
         var te = (RottenMycelialSoilTileEntity) level.getBlockEntity(pos);
-        var preState = te.getPreviousBlock().defaultBlockState();
+        var preState = Objects.requireNonNull(te).getPreviousBlock().defaultBlockState();
         var model = Minecraft.getInstance().getBlockRenderer().getBlockModel(preState);
         var dataMap = new ModelDataMap.Builder().withInitial(BLOCK, null).build();
         dataMap.setData(BLOCK, model);
@@ -50,7 +51,8 @@ public record RottenMycelialSoilModel(
     }
 
     @Override
-    public @NotNull List<BakedQuad> getQuads(@Nullable BlockState p_119123_, @Nullable Direction p_119124_, Random p_119125_)
+    @Deprecated
+    public @NotNull List<BakedQuad> getQuads(@Nullable BlockState p_119123_, @Nullable Direction p_119124_, @NotNull Random p_119125_)
     {
         return mycelium.getQuads(p_119123_, p_119124_, p_119125_);
     }
@@ -80,6 +82,7 @@ public record RottenMycelialSoilModel(
     }
 
     @Override
+    @Deprecated
     public @NotNull TextureAtlasSprite getParticleIcon()
     {
         return mycelium.getParticleIcon();

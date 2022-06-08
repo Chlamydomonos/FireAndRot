@@ -15,6 +15,7 @@ import java.util.Locale;
 
 public class ProjectileParticleOptions implements ParticleOptions
 {
+    @SuppressWarnings("deprecation")
     public static class Deserializer implements ParticleOptions.Deserializer<ProjectileParticleOptions>
     {
         @Override

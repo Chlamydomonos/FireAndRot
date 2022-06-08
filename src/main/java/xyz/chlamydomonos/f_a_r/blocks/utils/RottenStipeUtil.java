@@ -10,6 +10,7 @@ import xyz.chlamydomonos.f_a_r.loaders.BlockLoader;
 
 import java.util.*;
 
+@SuppressWarnings("deprecation")
 public class RottenStipeUtil
 {
     private static final boolean[][][] isAirBuffer = new boolean[5][5][5];
@@ -107,8 +108,6 @@ public class RottenStipeUtil
                     boolean temp2 = random.nextBoolean();
                     if (temp2)
                         canSplitX = false;
-                    else
-                        canSplitZ = false;
                 }
 
                 if (canSplitX)
@@ -117,14 +116,10 @@ public class RottenStipeUtil
                     level.setBlock(pos.offset(1, 0, 0), tryIncreaseHeight(newState, random), 3);
                     return true;
                 }
-                if (canSplitZ)
-                {
-                    level.setBlock(pos.offset(0, 0, -1), tryIncreaseHeight(newState, random), 3);
-                    level.setBlock(pos.offset(0, 0, 1), tryIncreaseHeight(newState, random), 3);
-                    return true;
-                }
-                if (random.nextBoolean())
-                    return false;
+
+                level.setBlock(pos.offset(0, 0, -1), tryIncreaseHeight(newState, random), 3);
+                level.setBlock(pos.offset(0, 0, 1), tryIncreaseHeight(newState, random), 3);
+                return true;
             }
         }
 

@@ -13,6 +13,7 @@ import xyz.chlamydomonos.f_a_r.blocks.utils.RottenMycelialSoilUtil;
 
 import java.util.Random;
 
+@SuppressWarnings("deprecation")
 public class RottenMycelialSoilWithoutTEBlock extends Block
 {
     public RottenMycelialSoilWithoutTEBlock()

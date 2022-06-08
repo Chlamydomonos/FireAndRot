@@ -27,6 +27,7 @@ archivesBaseName = 'f_a_r'
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
+//noinspection GrUnresolvedAccess
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
     // The mappings can be changed at any time and must be in the following format.
@@ -51,6 +52,7 @@ minecraft {
     runs {
 
         client {
+            //noinspection GroovyAssignabilityCheck
             workingDirectory project.file('run')
 
             // Recommended logging data for a userdev environment
@@ -70,6 +72,7 @@ minecraft {
 
             mods {
                 f_a_r {
+                    //noinspection GroovyAssignabilityCheck
                     source sourceSets.main
                 }
             }
@@ -79,6 +82,7 @@ minecraft {
         }
 
         server {
+            //noinspection GroovyAssignabilityCheck
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
@@ -90,6 +94,7 @@ minecraft {
 
             mods {
                 f_a_r {
+                    //noinspection GroovyAssignabilityCheck
                     source sourceSets.main
                 }
             }
@@ -99,6 +104,7 @@ minecraft {
         // By default, the server will crash when no gametests are provided.
         // The gametest system is also enabled by default for other run configs under the /test command.
         gameTestServer {
+            //noinspection GroovyAssignabilityCheck
             workingDirectory project.file('run')
 
             // Recommended logging data for a userdev environment
@@ -118,12 +124,14 @@ minecraft {
 
             mods {
                 f_a_r {
+                    //noinspection GroovyAssignabilityCheck
                     source sourceSets.main
                 }
             }
         }
 
         data {
+            //noinspection GroovyAssignabilityCheck
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
@@ -136,6 +144,7 @@ minecraft {
 
             mods {
                 f_a_r {
+                    //noinspection GroovyAssignabilityCheck
                     source sourceSets.main
                 }
             }
@@ -184,6 +193,7 @@ dependencies {
 jar {
     //noinspection GroovyAssignabilityCheck
     manifest {
+        //noinspection GrUnresolvedAccess
         attributes([
                 "Specification-Title"     : "f_a_r",
                 "Specification-Vendor"    : "f_a_rsareus",
@@ -204,7 +214,9 @@ jar.finalizedBy('reobfJar')
 
 publishing {
     publications {
+        //noinspection GroovyAssignabilityCheck
         mavenJava(MavenPublication) {
+            //noinspection GroovyAssignabilityCheck
             artifact jar
         }
     }

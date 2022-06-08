@@ -9,6 +9,7 @@ import org.jetbrains.annotations.Nullable;
 import xyz.chlamydomonos.f_a_r.particles.ProjectileParticle;
 import xyz.chlamydomonos.f_a_r.particles.options.ProjectileParticleOptions;
 
+@SuppressWarnings("ClassCanBeRecord")
 public class ProjectileParticleProvider implements ParticleProvider<ProjectileParticleOptions>
 {
     private final SpriteSet spriteSet;

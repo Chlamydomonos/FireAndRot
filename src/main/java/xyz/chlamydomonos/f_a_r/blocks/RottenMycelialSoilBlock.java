@@ -17,6 +17,7 @@ import xyz.chlamydomonos.f_a_r.tileentities.RottenMycelialSoilTileEntity;
 
 import java.util.Random;
 
+@SuppressWarnings("deprecation")
 public class RottenMycelialSoilBlock extends Block implements EntityBlock
 {
 
