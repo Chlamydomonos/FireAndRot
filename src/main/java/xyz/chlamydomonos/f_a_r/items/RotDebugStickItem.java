@@ -13,6 +13,7 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import xyz.chlamydomonos.f_a_r.blocks.utils.RottenMycelialSoilUtil;
+import xyz.chlamydomonos.f_a_r.items.utils.StyleUtil;
 import xyz.chlamydomonos.f_a_r.loaders.BlockLoader;
 import xyz.chlamydomonos.f_a_r.loaders.CreativeTabLoader;
 import xyz.chlamydomonos.f_a_r.tileentities.RottenMycelialSoilTileEntity;
@@ -30,8 +31,7 @@ public class RotDebugStickItem extends Item
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> text, @NotNull TooltipFlag flag)
     {
         super.appendHoverText(stack, level, text, flag);
-        text.add(new TranslatableComponent("tooltip.f_a_r.rot_debug_stick.line1")
-                         .setStyle(Style.EMPTY.withFont(Style.DEFAULT_FONT).withColor(0x808080)));
+        text.add(new TranslatableComponent("tooltip.f_a_r.rot_debug_stick.line1").setStyle(StyleUtil.TOOLTIP));
     }
 
     @Override
@@ -40,10 +40,10 @@ public class RotDebugStickItem extends Item
         var pos = context.getClickedPos();
         var level = context.getLevel();
 
-        if(level.isClientSide)
+        if (level.isClientSide)
             return InteractionResult.PASS;
 
-        if(!RottenMycelialSoilUtil.canRot(level.getBlockState(pos)))
+        if (!RottenMycelialSoilUtil.canRot(level.getBlockState(pos)))
             return InteractionResult.PASS;
 
         var block = level.getBlockState(pos).getBlock();
@@ -51,7 +51,7 @@ public class RotDebugStickItem extends Item
         level.setBlock(pos, BlockLoader.ROTTEN_MYCELIAL_SOIL.get().defaultBlockState(), 0);
 
         var te = level.getBlockEntity(pos);
-        if(te != null)
+        if (te != null)
             ((RottenMycelialSoilTileEntity) te).setPreviousBlock(block);
 
         level.sendBlockUpdated(pos, level.getBlockState(pos), level.getBlockState(pos), 2);

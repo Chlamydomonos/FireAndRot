@@ -15,6 +15,7 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import xyz.chlamydomonos.f_a_r.entities.MainProjectileEntity;
+import xyz.chlamydomonos.f_a_r.items.utils.StyleUtil;
 import xyz.chlamydomonos.f_a_r.loaders.CreativeTabLoader;
 
 import java.util.List;
@@ -31,8 +32,7 @@ public class TestProjectileItem extends Item
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> text, @NotNull TooltipFlag flag)
     {
         super.appendHoverText(stack, level, text, flag);
-        text.add(new TranslatableComponent("tooltip.f_a_r.test_projectile.line1")
-                         .setStyle(Style.EMPTY.withFont(Style.DEFAULT_FONT).withColor(0x808080)));
+        text.add(new TranslatableComponent("tooltip.f_a_r.test_projectile.line1").setStyle(StyleUtil.TOOLTIP));
     }
 
     @Override
@@ -51,16 +51,16 @@ public class TestProjectileItem extends Item
     @Override
     public void releaseUsing(@NotNull ItemStack pStack, @NotNull Level pLevel, @NotNull LivingEntity pLivingEntity, int pTimeCharged)
     {
-        if(!(pLivingEntity instanceof Player) || pLevel.isClientSide)
+        if (!(pLivingEntity instanceof Player) || pLevel.isClientSide)
             return;
 
         float pX = 45f;
         float pY = pLivingEntity.getYRot();
         float pZ = 0f;
 
-        float x = -Mth.sin(pY * ((float)Math.PI / 180F)) * Mth.cos(pX * ((float)Math.PI / 180F));
-        float y = -Mth.sin((pX + pZ) * ((float)Math.PI / 180F));
-        float z = Mth.cos(pY * ((float)Math.PI / 180F)) * Mth.cos(pX * ((float)Math.PI / 180F));
+        float x = -Mth.sin(pY * ((float) Math.PI / 180F)) * Mth.cos(pX * ((float) Math.PI / 180F));
+        float y = -Mth.sin((pX + pZ) * ((float) Math.PI / 180F));
+        float z = Mth.cos(pY * ((float) Math.PI / 180F)) * Mth.cos(pX * ((float) Math.PI / 180F));
 
         var mainProjectile = MainProjectileEntity.create(pLevel);
 

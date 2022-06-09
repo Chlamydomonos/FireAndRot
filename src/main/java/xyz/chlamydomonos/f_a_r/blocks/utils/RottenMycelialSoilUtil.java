@@ -8,6 +8,7 @@ import net.minecraft.world.level.material.MaterialColor;
 import org.jetbrains.annotations.NotNull;
 import xyz.chlamydomonos.f_a_r.blocks.RottenMycelialSoilBlock;
 import xyz.chlamydomonos.f_a_r.blocks.RottenMycelialSoilWithoutTEBlock;
+import xyz.chlamydomonos.f_a_r.blocks.RottenResidueBlock;
 import xyz.chlamydomonos.f_a_r.loaders.BlockLoader;
 import xyz.chlamydomonos.f_a_r.tileentities.RottenMycelialSoilTileEntity;
 
@@ -19,6 +20,7 @@ public class RottenMycelialSoilUtil
     {
         if (state.getBlock() instanceof RottenMycelialSoilBlock) return false;
         if (state.getBlock() instanceof RottenMycelialSoilWithoutTEBlock) return false;
+        if (state.getBlock() instanceof RottenResidueBlock) return false;
         if (state.getMaterial().getColor() == MaterialColor.DIRT) return true;
         if (state.getMaterial().getColor() == MaterialColor.GRASS) return true;
         if (state.getMaterial().getColor() == MaterialColor.STONE) return true;
@@ -40,6 +42,7 @@ public class RottenMycelialSoilUtil
 
     public static void rot(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull Random random)
     {
+        //noinspection deprecation
         if(!level.isAreaLoaded(pos, 5))
             return;
 

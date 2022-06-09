@@ -1,6 +1,5 @@
 package xyz.chlamydomonos.f_a_r.blocks;
 
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SandBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;

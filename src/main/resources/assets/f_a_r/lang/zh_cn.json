@@ -5,5 +5,8 @@
   "block.f_a_r.rotten_stipe": "腐败菌柄",
   "item.f_a_r.test_projectile": "艾尔登流星测试器",
   "tooltip.f_a_r.test_projectile.line1": "只作为早期测试用途，不是真正的发射器",
-  "death.attack.elden_stars": "%1$s 被 %2$s 使用艾尔登流星杀死了"
+  "death.attack.elden_stars": "%1$s 被 %2$s 使用艾尔登流星杀死了",
+  "block.f_a_r.rotten_residue": "腐败残渣",
+  "tooltip.f_a_r.rotten_stipe.line1": "诡异的蓝色植物",
+  "tooltip.f_a_r.rotten_residue.line1": "疏松的物质团块"
 }
