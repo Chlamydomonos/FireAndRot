@@ -1,6 +1,9 @@
 {
   "variants": {
-    "": {
+    "can_grow=true": {
+      "model": "f_a_r:block/rotten_mushroom_cap_0"
+    },
+    "can_grow=false": {
       "model": "f_a_r:block/rotten_mushroom_cap_0"
     }
   }

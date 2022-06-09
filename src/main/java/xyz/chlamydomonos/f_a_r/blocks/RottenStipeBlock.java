@@ -50,12 +50,12 @@ public class RottenStipeBlock extends PipeBlock
         builder.add(NORTH, SOUTH, EAST, WEST, UP, DOWN, FARProperties.AGE, FARProperties.HEIGHT);
     }
 
-    private boolean canConnect(BlockState state)
+    private boolean canConnect(BlockState state, Direction direction)
     {
         var block = state.getBlock();
         if (block == this)
             return true;
-        if (block == BlockLoader.SMALL_ROTTEN_MUSHROOM_CAP.get())
+        if (block == BlockLoader.SMALL_ROTTEN_MUSHROOM_CAP.get() && direction == Direction.UP)
             return true;
         if (block == BlockLoader.ROTTEN_MUSHROOM_CAP_CENTER.get())
             return true;
@@ -68,7 +68,7 @@ public class RottenStipeBlock extends PipeBlock
         if (state.getValue(FARProperties.HEIGHT) == 0 && direction == Direction.DOWN)
             return state.setValue(PROPERTY_BY_DIRECTION.get(direction), !neighborState.isAir());
         
-        return state.setValue(PROPERTY_BY_DIRECTION.get(direction), canConnect(neighborState));
+        return state.setValue(PROPERTY_BY_DIRECTION.get(direction), canConnect(neighborState, direction));
     }
 
     @Override

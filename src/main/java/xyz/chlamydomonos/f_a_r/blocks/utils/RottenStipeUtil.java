@@ -201,6 +201,15 @@ public class RottenStipeUtil
                     level.setBlock(pos, newState, 3);
                 }
             }
+            else if(isAirBuffer[2][3][2])
+            {
+                BlockState cap = BlockLoader.SMALL_ROTTEN_MUSHROOM_CAP
+                        .get()
+                        .defaultBlockState()
+                        .setValue(FARProperties.CAN_GROW, canGenerateCap());
+
+                level.setBlock(pos.above(), cap, 3);
+            }
             return;
         }
 
