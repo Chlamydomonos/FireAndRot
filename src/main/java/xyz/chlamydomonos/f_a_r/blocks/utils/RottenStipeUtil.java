@@ -41,6 +41,15 @@ public class RottenStipeUtil
                && !isThisBuffer[xOffset + 2][1][zOffset + 2];
     }
 
+    public static boolean canGenerateCap()
+    {
+        for(int i = 1; i <= 3; i++)
+            for (int k = 1; k <= 3; k++)
+                if (!isAirBuffer[i][3][k])
+                    return false;
+        return true;
+    }
+
     public static BlockState tryIncreaseHeight(BlockState origin, Random random)
     {
         if(origin.getValue(FARProperties.HEIGHT) == 0)
