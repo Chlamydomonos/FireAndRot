@@ -18,4 +18,5 @@ public class ItemLoader
     public static final RegistryObject<Item> ROTTEN_STIPE = ITEMS.register("rotten_stipe", RottenStipeItem::new);
     public static final RegistryObject<Item> TEST_PROJECTILE = ITEMS.register("test_projectile", TestProjectileItem::new);
     public static final RegistryObject<Item> ROTTEN_RESIDUE = ITEMS.register("rotten_residue", RottenResidueItem::new);
+    public static final RegistryObject<Item> ALIEN_ORB = ITEMS.register("alien_orb", AlienOrbItem::new);
 }

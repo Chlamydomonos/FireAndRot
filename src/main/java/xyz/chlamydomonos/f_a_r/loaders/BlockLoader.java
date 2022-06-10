@@ -32,6 +32,7 @@ public class BlockLoader
     public static final RegistryObject<Block> ROTTEN_MUSHROOM_CAP_CORNER = BLOCKS.register("rotten_mushroom_cap_corner", RottenMushroomCapBlock::new);
     public static final RegistryObject<Block> WITHERED_ROTTEN_MUSHROOM_CAP = BLOCKS.register("withered_rotten_mushroom_cap", WitheredRottenMushroomCapBlock::new);
     public static final RegistryObject<Block> ROTTEN_RESIDUE = BLOCKS.register("rotten_residue", RottenResidueBlock::new);
+    public static final RegistryObject<Block> ALIEN_EXPLOSIVE = BLOCKS.register("alien_explosive", AlienExplosiveBlock::new);
 
 
     @SubscribeEvent

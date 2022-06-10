@@ -8,5 +8,7 @@
   "death.attack.elden_stars": "%1$s 被 %2$s 使用艾尔登流星杀死了",
   "block.f_a_r.rotten_residue": "腐败残渣",
   "tooltip.f_a_r.rotten_stipe.line1": "诡异的蓝色植物",
-  "tooltip.f_a_r.rotten_residue.line1": "疏松的物质团块"
+  "tooltip.f_a_r.rotten_residue.line1": "疏松的物质团块",
+  "item.f_a_r.alien_orb": "天降之物",
+  "tooltip.f_a_r.alien_orb.line1": "稍加扰动就会产生接近太阳表面的高温"
 }
