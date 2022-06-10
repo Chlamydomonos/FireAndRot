@@ -10,12 +10,15 @@ import xyz.chlamydomonos.f_a_r.blocks.RottenMycelialSoilBlock;
 import xyz.chlamydomonos.f_a_r.blocks.RottenMycelialSoilWithoutTEBlock;
 import xyz.chlamydomonos.f_a_r.blocks.RottenResidueBlock;
 import xyz.chlamydomonos.f_a_r.loaders.BlockLoader;
+import xyz.chlamydomonos.f_a_r.loaders.ConfigLoader;
 import xyz.chlamydomonos.f_a_r.tileentities.RottenMycelialSoilTileEntity;
 
 import java.util.Random;
 
 public class RottenMycelialSoilUtil
 {
+    private static final boolean[][][] isAirBuffer = new boolean[5][5][5];
+
     public static boolean canRot(BlockState state)
     {
         if (state.getBlock() instanceof RottenMycelialSoilBlock) return false;
@@ -28,11 +31,9 @@ public class RottenMycelialSoilUtil
         return false;
     }
 
-    private static final boolean[][][] isAirBuffer = new boolean[5][5][5];
-
     public static boolean inAir(int x, int y, int z)
     {
-        for(int i = -1; i <= 1; i++)
+        for (int i = -1; i <= 1; i++)
             for (int j = -1; j <= 1; j++)
                 for (int k = -1; k <= 1; k++)
                     if (isAirBuffer[x + i + 2][y + j + 2][z + k + 2])
@@ -43,75 +44,78 @@ public class RottenMycelialSoilUtil
     public static void rot(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull Random random)
     {
         //noinspection deprecation
-        if(!level.isAreaLoaded(pos, 5))
+        if (!level.isAreaLoaded(pos, 5))
             return;
 
         int phase = state.getValue(FARProperties.PHASE);
 
         boolean canUpgrade = true;
 
-        for(int i = -2; i <= 2; i++)
-            for(int j = -2; j <= 2; j++)
-                for(int k = -2; k <= 2; k++)
+        for (int i = -2; i <= 2; i++)
+            for (int j = -2; j <= 2; j++)
+                for (int k = -2; k <= 2; k++)
                     isAirBuffer[i + 2][j + 2][k + 2] = level.getBlockState(pos.offset(i, j, k)).isAir();
 
-        for(int i = -1; i <= 1; i++)
+        if (ConfigLoader.ROT_EXPAND.get())
         {
-            for(int j = -1; j <= 1; j++)
+            for (int i = -1; i <= 1; i++)
             {
-                for(int k = -1; k <= 1; k++)
+                for (int j = -1; j <= 1; j++)
                 {
-                    var newPos = pos.offset(i, j, k);
-                    var oldState = level.getBlockState(newPos);
-
-                    boolean posInAir = inAir(i, j, k);
-
-                    if(oldState.getBlock() instanceof RottenMycelialSoilBlock || oldState.getBlock() instanceof RottenMycelialSoilWithoutTEBlock)
+                    for (int k = -1; k <= 1; k++)
                     {
-                        int otherPhase = oldState.getValue(FARProperties.PHASE);
-                        if(phase > otherPhase && posInAir)
-                            canUpgrade = false;
-                    }
+                        var newPos = pos.offset(i, j, k);
+                        var oldState = level.getBlockState(newPos);
 
-                    if(posInAir && canRot(oldState))
-                    {
-                        if(random.nextInt(3) == 0)
+                        boolean posInAir = inAir(i, j, k);
+
+                        if (oldState.getBlock() instanceof RottenMycelialSoilBlock || oldState.getBlock() instanceof RottenMycelialSoilWithoutTEBlock)
                         {
-                            var block = level.getBlockState(newPos).getBlock();
-                            var newState = BlockLoader.ROTTEN_MYCELIAL_SOIL.get().defaultBlockState();
-                            level.setBlock(pos.offset(i, j, k), newState, 0);
-                            var te = level.getBlockEntity(newPos);
+                            int otherPhase = oldState.getValue(FARProperties.PHASE);
+                            if (phase > otherPhase && posInAir)
+                                canUpgrade = false;
+                        }
 
-                            if(!(te instanceof RottenMycelialSoilTileEntity))
-                                continue;
+                        if (posInAir && canRot(oldState))
+                        {
+                            if (random.nextInt(3) == 0)
+                            {
+                                var block = level.getBlockState(newPos).getBlock();
+                                var newState = BlockLoader.ROTTEN_MYCELIAL_SOIL.get().defaultBlockState();
+                                level.setBlock(pos.offset(i, j, k), newState, 0);
+                                var te = level.getBlockEntity(newPos);
 
-                            ((RottenMycelialSoilTileEntity) te).setPreviousBlock(block);
+                                if (!(te instanceof RottenMycelialSoilTileEntity))
+                                    continue;
 
-                            level.sendBlockUpdated(newPos, oldState, newState, 3);
+                                ((RottenMycelialSoilTileEntity) te).setPreviousBlock(block);
+
+                                level.sendBlockUpdated(newPos, oldState, newState, 3);
+                            }
                         }
                     }
                 }
             }
         }
 
-        if(canUpgrade)
+        if (canUpgrade)
         {
             if (phase == 17)
                 level.setBlock(pos, BlockLoader.ROTTEN_MYCELIAL_SOIL_WITHOUT_TE.get().defaultBlockState(), 3);
             else if (phase < 17)
             {
                 var te = level.getBlockEntity(pos);
-                if(!(te instanceof RottenMycelialSoilTileEntity))
+                if (!(te instanceof RottenMycelialSoilTileEntity))
                     return;
                 var block = ((RottenMycelialSoilTileEntity) te).getPreviousBlock();
 
                 var newState = state.cycle(FARProperties.PHASE);
 
-                level.setBlock(pos, newState,0);
+                level.setBlock(pos, newState, 0);
 
                 te = level.getBlockEntity(pos);
 
-                if(!(te instanceof RottenMycelialSoilTileEntity))
+                if (!(te instanceof RottenMycelialSoilTileEntity))
                     return;
 
                 ((RottenMycelialSoilTileEntity) te).setPreviousBlock(block);
@@ -125,16 +129,16 @@ public class RottenMycelialSoilUtil
 
     public static void genStipe(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull Random random)
     {
-        if(random.nextInt(10) != 0)
+        if (random.nextInt(10) != 0)
             return;
 
-        for(int i = -2; i <= 2; i++)
+        for (int i = -2; i <= 2; i++)
         {
-            for(int j = 0; j <= 2; j++)
+            for (int j = 0; j <= 2; j++)
             {
-                for(int k = -2; k <= 2; k++)
+                for (int k = -2; k <= 2; k++)
                 {
-                    if(level.getBlockState(pos.offset(i, j, k)).is(BlockLoader.ROTTEN_STIPE.get()))
+                    if (level.getBlockState(pos.offset(i, j, k)).is(BlockLoader.ROTTEN_STIPE.get()))
                         return;
                 }
             }

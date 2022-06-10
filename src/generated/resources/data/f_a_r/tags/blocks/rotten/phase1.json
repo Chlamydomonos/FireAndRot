@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "f_a_r:rotten_mycelial_soil",
+    "f_a_r:rotten_mycelial_soil_without_te",
+    "f_a_r:rotten_stipe",
+    "f_a_r:small_rotten_mushroom_cap",
+    "f_a_r:rotten_mushroom_cap_center",
+    "f_a_r:rotten_mushroom_cap_corner",
+    "f_a_r:rotten_mushroom_cap_side"
+  ]
+}
