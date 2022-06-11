@@ -28,3 +28,4 @@ forge*changelog.txt
 local_doc
 *.psd
 *.bbmodel
+!run/config
