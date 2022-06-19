@@ -33,6 +33,8 @@ public class BlockLoader
     public static final RegistryObject<Block> WITHERED_ROTTEN_MUSHROOM_CAP = BLOCKS.register("withered_rotten_mushroom_cap", WitheredRottenMushroomCapBlock::new);
     public static final RegistryObject<Block> ROTTEN_RESIDUE = BLOCKS.register("rotten_residue", RottenResidueBlock::new);
     public static final RegistryObject<Block> ALIEN_EXPLOSIVE = BLOCKS.register("alien_explosive", AlienExplosiveBlock::new);
+    public static final RegistryObject<Block> ROTTEN_LICHENS = BLOCKS.register("rotten_lichens", RottenLichensBlock::new);
+    public static final RegistryObject<Block> ROTTEN_MILDEW = BLOCKS.register("rotten_mildew", RottenMildewBlock::new);
 
 
     @SubscribeEvent
@@ -43,6 +45,7 @@ public class BlockLoader
             ItemBlockRenderTypes.setRenderLayer(ROTTEN_MYCELIAL_SOIL_HIDDEN.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ROTTEN_STIPE.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(SMALL_ROTTEN_MUSHROOM_CAP.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ROTTEN_MILDEW.get(), RenderType.cutoutMipped());
         });
     }
 

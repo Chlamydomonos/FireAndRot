@@ -22,6 +22,7 @@ public class AlienExplosiveBlock extends Block
                 Properties.of(Material.EXPLOSIVE)
                         .randomTicks()
                         .strength(-1f)
+                        .explosionResistance(0.000000001f)
                         .noOcclusion()
              );
     }

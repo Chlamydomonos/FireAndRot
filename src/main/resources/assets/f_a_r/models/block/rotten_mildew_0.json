@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "textures": {
+    "cross": "f_a_r:block/rotten_mildew_0"
+  }
+}

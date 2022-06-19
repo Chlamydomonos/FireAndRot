@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "f_a_r:block/rotten_lichens_0"
+    },
+    "age=1": {
+      "model": "f_a_r:block/rotten_lichens_1"
+    },
+    "age=2": {
+      "model": "f_a_r:block/rotten_lichens_1"
+    },
+    "age=3": {
+      "model": "f_a_r:block/rotten_lichens_2"
+    },
+    "age=4": {
+      "model": "f_a_r:block/rotten_lichens_2"
+    }
+  }
+}
