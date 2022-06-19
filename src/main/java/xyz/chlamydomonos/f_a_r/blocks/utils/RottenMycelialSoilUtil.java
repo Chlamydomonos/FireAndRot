@@ -127,7 +127,7 @@ public class RottenMycelialSoilUtil
         }
     }
 
-    public static void genStipe(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull Random random)
+    public static void genStipe(@NotNull BlockState ignoredState, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull Random random)
     {
         if (random.nextInt(10) != 0)
             return;
@@ -149,5 +149,20 @@ public class RottenMycelialSoilUtil
                 BlockLoader.ROTTEN_STIPE.get().defaultBlockState().setValue(PipeBlock.DOWN, true),
                 3
                       );
+    }
+
+    public static void becomeResidue(@NotNull BlockState ignoredState, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull Random random)
+    {
+        var upState = level.getBlockState(pos.above());
+
+        boolean canBecomeResidue = false;
+
+        if(upState.is(BlockLoader.ROTTEN_STIPE.get()))
+            canBecomeResidue = upState.getValue(FARProperties.AGE) == 4;
+        if(upState.is(BlockLoader.ROTTEN_RESIDUE.get()))
+            canBecomeResidue = true;
+
+        if(canBecomeResidue && random.nextBoolean())
+            level.setBlock(pos, BlockLoader.ROTTEN_RESIDUE.get().defaultBlockState(), 3);
     }
 }

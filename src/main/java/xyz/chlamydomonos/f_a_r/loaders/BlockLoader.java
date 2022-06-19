@@ -35,6 +35,7 @@ public class BlockLoader
     public static final RegistryObject<Block> ALIEN_EXPLOSIVE = BLOCKS.register("alien_explosive", AlienExplosiveBlock::new);
     public static final RegistryObject<Block> ROTTEN_LICHENS = BLOCKS.register("rotten_lichens", RottenLichensBlock::new);
     public static final RegistryObject<Block> ROTTEN_MILDEW = BLOCKS.register("rotten_mildew", RottenMildewBlock::new);
+    public static final RegistryObject<Block> ROTTEN_SOIL = BLOCKS.register("rotten_soil", RottenSoilBlock::new);
 
 
     @SubscribeEvent

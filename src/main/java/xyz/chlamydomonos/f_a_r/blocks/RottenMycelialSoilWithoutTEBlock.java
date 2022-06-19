@@ -40,5 +40,6 @@ public class RottenMycelialSoilWithoutTEBlock extends Block
     {
         RottenMycelialSoilUtil.rot(state, level, pos, random);
         RottenMycelialSoilUtil.genStipe(state, level, pos, random);
+        RottenMycelialSoilUtil.becomeResidue(state, level, pos, random);
     }
 }

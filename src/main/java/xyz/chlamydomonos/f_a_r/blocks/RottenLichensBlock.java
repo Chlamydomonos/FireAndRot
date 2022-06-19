@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.Material;
 import org.jetbrains.annotations.NotNull;
 import xyz.chlamydomonos.f_a_r.blocks.utils.FARProperties;
+import xyz.chlamydomonos.f_a_r.loaders.BlockLoader;
 
 import java.util.Random;
 
@@ -39,5 +40,8 @@ public class RottenLichensBlock extends Block
         int age = state.getValue(FARProperties.AGE);
         if(age < 4 && random.nextInt(5) == 0)
             level.setBlock(pos, state.cycle(FARProperties.AGE), 3);
+
+        if(age == 4 && random.nextInt(10) == 0)
+            level.setBlock(pos, BlockLoader.ROTTEN_SOIL.get().defaultBlockState(), 3);
     }
 }
