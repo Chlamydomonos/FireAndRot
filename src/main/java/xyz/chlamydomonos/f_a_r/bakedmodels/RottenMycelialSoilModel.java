@@ -26,15 +26,17 @@ public record RottenMycelialSoilModel(
         BakedModel mycelium) implements IForgeBakedModel, BakedModel
 {
     public static final ModelProperty<BakedModel> BLOCK = new ModelProperty<>();
+    public static final ModelProperty<BlockState> STATE = new ModelProperty<>();
 
     @NotNull
     @Override
     public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, @NotNull Random rand, @NotNull IModelData extraData)
     {
         var block = extraData.getData(BLOCK);
+        var preState = extraData.getData(STATE);
         List<BakedQuad> newQuads = new ArrayList<>();
         newQuads.addAll(Objects.requireNonNull(block).getQuads(state, side, rand, extraData));
-        newQuads.addAll(mycelium.getQuads(state, side, rand, extraData));
+        newQuads.addAll(mycelium.getQuads(preState, side, rand, extraData));
         return newQuads;
     }
 
@@ -45,8 +47,12 @@ public record RottenMycelialSoilModel(
         var te = (RottenMycelialSoilTileEntity) level.getBlockEntity(pos);
         var preState = Objects.requireNonNull(te).getPreviousBlock().defaultBlockState();
         var model = Minecraft.getInstance().getBlockRenderer().getBlockModel(preState);
-        var dataMap = new ModelDataMap.Builder().withInitial(BLOCK, null).build();
+        var dataMap = new ModelDataMap.Builder()
+                .withInitial(BLOCK, null)
+                .withInitial(STATE, null)
+                .build();
         dataMap.setData(BLOCK, model);
+        dataMap.setData(STATE, preState);
         return dataMap;
     }
 
