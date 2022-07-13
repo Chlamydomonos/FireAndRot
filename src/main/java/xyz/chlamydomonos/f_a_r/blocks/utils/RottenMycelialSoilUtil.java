@@ -2,6 +2,8 @@ package xyz.chlamydomonos.f_a_r.blocks.utils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MaterialColor;
@@ -11,6 +13,7 @@ import xyz.chlamydomonos.f_a_r.blocks.RottenMycelialSoilWithoutTEBlock;
 import xyz.chlamydomonos.f_a_r.blocks.RottenResidueBlock;
 import xyz.chlamydomonos.f_a_r.loaders.BlockLoader;
 import xyz.chlamydomonos.f_a_r.loaders.ConfigLoader;
+import xyz.chlamydomonos.f_a_r.tags.FARBlockTags;
 import xyz.chlamydomonos.f_a_r.tileentities.RottenMycelialSoilTileEntity;
 
 import java.util.Random;
@@ -21,9 +24,12 @@ public class RottenMycelialSoilUtil
 
     public static boolean canRot(BlockState state)
     {
-        if (state.getBlock() instanceof RottenMycelialSoilBlock) return false;
-        if (state.getBlock() instanceof RottenMycelialSoilWithoutTEBlock) return false;
-        if (state.getBlock() instanceof RottenResidueBlock) return false;
+        if(state.is(Blocks.BEDROCK))
+            return ConfigLoader.ROTTEN_BEDROCK.get();
+
+        if(state.is(FARBlockTags.ROTTEN_PHASE_1)) return false;
+        if(state.is(FARBlockTags.ROTTEN_PHASE_2)) return false;
+        if(state.is(FARBlockTags.ROTTEN_PHASE_3)) return false;
         if (state.getMaterial().getColor() == MaterialColor.DIRT) return true;
         if (state.getMaterial().getColor() == MaterialColor.GRASS) return true;
         if (state.getMaterial().getColor() == MaterialColor.STONE) return true;

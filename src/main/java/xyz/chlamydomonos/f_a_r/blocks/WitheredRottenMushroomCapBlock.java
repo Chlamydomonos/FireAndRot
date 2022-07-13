@@ -2,12 +2,14 @@ package xyz.chlamydomonos.f_a_r.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.Material;
 import org.jetbrains.annotations.NotNull;
 import xyz.chlamydomonos.f_a_r.blocks.utils.FARProperties;
+import xyz.chlamydomonos.f_a_r.blocks.utils.RottenMushroomCapUtil;
 import xyz.chlamydomonos.f_a_r.loaders.BlockLoader;
 
 import java.util.Random;
@@ -48,5 +50,11 @@ public class WitheredRottenMushroomCapBlock extends Block
         if(level.getBlockState(pos.below()).isAir())
             level.setBlock(pos.below(), BlockLoader.ROTTEN_RESIDUE.get().defaultBlockState(), 3);
         level.setBlock(pos, BlockLoader.ROTTEN_RESIDUE.get().defaultBlockState(), 3);
+    }
+
+    @Override
+    public void animateTick(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Random random)
+    {
+        RottenMushroomCapUtil.genSporeParticles(state, level, pos, random);
     }
 }

@@ -3,4 +3,6 @@
 [rot]
 	#腐败是否扩散
 	rot_expand = true
+	#腐败是否能侵蚀基岩
+	rotten_bedrock = false
 

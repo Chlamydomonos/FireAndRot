@@ -10,5 +10,8 @@
   "tooltip.f_a_r.rotten_stipe.line1": "诡异的蓝色植物",
   "tooltip.f_a_r.rotten_residue.line1": "疏松的物质团块",
   "item.f_a_r.alien_orb": "天降之物",
-  "tooltip.f_a_r.alien_orb.line1": "稍加扰动就会产生接近太阳表面的高温"
+  "tooltip.f_a_r.alien_orb.line1": "稍加扰动就会产生接近太阳表面的高温",
+  "block.f_a_r.rotten_soil": "腐败土壤",
+  "block.f_a_r.poison_flower": "毒花",
+  "block.f_a_r.pale_mushroom": "苍白蘑菇"
 }

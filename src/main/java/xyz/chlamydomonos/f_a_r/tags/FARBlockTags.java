@@ -10,6 +10,7 @@ public class FARBlockTags
 {
     public static final TagKey<Block> ROTTEN_PHASE_1 = tag("rotten/phase1");
     public static final TagKey<Block> ROTTEN_PHASE_2 = tag("rotten/phase2");
+    public static final TagKey<Block> ROTTEN_PHASE_3 = tag("rotten/phase3");
 
     private static TagKey<Block> tag(String name)
     {

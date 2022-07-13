@@ -36,6 +36,8 @@ public class BlockLoader
     public static final RegistryObject<Block> ROTTEN_LICHENS = BLOCKS.register("rotten_lichens", RottenLichensBlock::new);
     public static final RegistryObject<Block> ROTTEN_MILDEW = BLOCKS.register("rotten_mildew", RottenMildewBlock::new);
     public static final RegistryObject<Block> ROTTEN_SOIL = BLOCKS.register("rotten_soil", RottenSoilBlock::new);
+    public static final RegistryObject<Block> POISON_FLOWER = BLOCKS.register("poison_flower", RottenPlantBlock::new);
+    public static final RegistryObject<Block> PALE_MUSHROOM = BLOCKS.register("pale_mushroom", RottenPlantBlock::new);
 
 
     @SubscribeEvent
@@ -47,6 +49,8 @@ public class BlockLoader
             ItemBlockRenderTypes.setRenderLayer(ROTTEN_STIPE.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(SMALL_ROTTEN_MUSHROOM_CAP.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ROTTEN_MILDEW.get(), RenderType.cutoutMipped());
+            ItemBlockRenderTypes.setRenderLayer(POISON_FLOWER.get(), RenderType.cutoutMipped());
+            ItemBlockRenderTypes.setRenderLayer(PALE_MUSHROOM.get(), RenderType.cutoutMipped());
         });
     }
 

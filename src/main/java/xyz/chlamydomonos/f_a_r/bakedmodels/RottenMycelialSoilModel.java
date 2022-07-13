@@ -35,7 +35,7 @@ public record RottenMycelialSoilModel(
         var block = extraData.getData(BLOCK);
         var preState = extraData.getData(STATE);
         List<BakedQuad> newQuads = new ArrayList<>();
-        newQuads.addAll(Objects.requireNonNull(block).getQuads(state, side, rand, extraData));
+        newQuads.addAll(Objects.requireNonNull(block).getQuads(preState, side, rand, extraData));
         newQuads.addAll(mycelium.getQuads(preState, side, rand, extraData));
         return newQuads;
     }

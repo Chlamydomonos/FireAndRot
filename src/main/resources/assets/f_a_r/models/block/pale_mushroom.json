@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "f_a_r:block/pale_mushroom"
+  }
+}

@@ -35,7 +35,7 @@ public class RottenResidueBlock extends SandBlock
 
         if(random.nextInt(5) == 0)
         {
-            boolean genLichens = random.nextInt(10) == 7;
+            boolean genLichens = random.nextInt(10) < 7;
             if(genLichens)
                 level.setBlock(pos, BlockLoader.ROTTEN_LICHENS.get().defaultBlockState(), 3);
             else

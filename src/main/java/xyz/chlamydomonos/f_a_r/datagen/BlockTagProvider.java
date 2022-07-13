@@ -32,7 +32,13 @@ public class BlockTagProvider extends BlockTagsProvider
 
         tag(FARBlockTags.ROTTEN_PHASE_2).add(
                 BlockLoader.WITHERED_ROTTEN_MUSHROOM_CAP.get(),
-                BlockLoader.ROTTEN_RESIDUE.get()
+                BlockLoader.ROTTEN_RESIDUE.get(),
+                BlockLoader.ROTTEN_LICHENS.get(),
+                BlockLoader.ROTTEN_MILDEW.get()
+                                            );
+
+        tag(FARBlockTags.ROTTEN_PHASE_3).add(
+                BlockLoader.ROTTEN_SOIL.get()
                                             );
     }
 
